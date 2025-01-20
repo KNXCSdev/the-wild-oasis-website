@@ -1,7 +1,7 @@
-function Page() {
+async function Page() {
   return (
     <div>
-      <h1>eki</h1>
+      <h1>Cabins Page</h1>
     </div>
   );
 }
