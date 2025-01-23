@@ -2,15 +2,17 @@ import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 import Filter from "../_components/Filter";
+import ReservationReminder from "../_components/ReservationReminder";
 
-export const revalidate = 3600; //REFETCH DATA EVERY 1HOUR FOR STATIC PAGES,IT DOESNT WORK NOW BECAUSE THE PAGE IS DYNAMIC BECAUSE OF SEARCHPARAMS
+export const revalidate = 3600;
+//REFETCH DATA EVERY 1HOUR FOR STATIC PAGES,IT DOESNT WORK NOW BECAUSE THE PAGE IS DYNAMIC BECAUSE OF SEARCHPARAMS//NOTE
 // export const revalidate = 15;
 
 export const metadata = {
   title: "Cabins",
 };
 export default async function Page({ searchParams }) {
-  //SEarch Params gets the value of the url example: ?capacity=small
+  //SEarch Params gets the value of the url example: ?capacity=small //NOTE
   const filter = (await searchParams)?.capacity || "all";
 
   return (
@@ -29,6 +31,7 @@ export default async function Page({ searchParams }) {
 
       <Suspense fallback={<Spinner />} key={filter}>
         <CabinList filter={filter} />
+        <ReservationReminder />
       </Suspense>
     </div>
   );
