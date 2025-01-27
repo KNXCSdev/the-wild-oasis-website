@@ -3,13 +3,13 @@ import { updateBooking } from "@/app/_lib/actions";
 import { getBooking, getCabin } from "@/app/_lib/data-service";
 
 export async function generateMetadata({ params }) {
-  const { bookingId } = await params;
+  const { bookingId } = params;
 
   return { title: `Edit reservation #${bookingId}` };
 }
 
 export default async function Page({ params }) {
-  const { bookingId } = await params;
+  const { bookingId } = params;
   const { cabinId, numGuests, observations } = await getBooking(bookingId);
   const { maxCapacity } = await getCabin(cabinId);
 
