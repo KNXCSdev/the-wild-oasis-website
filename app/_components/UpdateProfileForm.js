@@ -33,7 +33,11 @@ function UpdateProfileForm({ children, guest }) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
-          <img src={countryFlag} alt="Country flag" className="h-5 rounded-sm" />
+          {countryFlag ? (
+            <img src={countryFlag} alt="Country flag" className="h-5 rounded-sm" />
+          ) : (
+            ""
+          )}
         </div>
 
         {/* WE USED CHILDREN BECAUSE SELECTCOUNTRY IS A SERVER COMPONENT AND WE CANT USE SERVER COMPONENT IN A CLIENT COMPONENT WITHOUT PASSING IT AS A PROP //NOTE */}
