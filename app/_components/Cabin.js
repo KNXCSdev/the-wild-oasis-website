@@ -1,13 +1,14 @@
 import Image from "next/image";
-import TextExpander from "./TextExpander";
+import TextExpander from "@/app/_components/TextExpander";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 
 function Cabin({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image, description } = cabin;
+
   return (
     <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
-      <div className="relative scale-[1.15] -translate-x-3 ">
-        <Image src={image} alt={`Cabin ${name}`} fill className="object-cover" />
+      <div className="relative scale-[1.15] -translate-x-3">
+        <Image src={image} fill className="object-cover" alt={`Cabin ${name}`} />
       </div>
 
       <div>
